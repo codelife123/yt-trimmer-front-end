@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
 import { useForm } from 'react-hook-form';
+import Faq from './Faq';
 
 export default function App() {
   const [isProcessing, setIsProcessing] = React.useState(false);
@@ -165,6 +166,8 @@ export default function App() {
 
         <div id="output" class="text-center mt-10"></div>
       </div>
+
+      <Faq />
     </div>
   );
 }
