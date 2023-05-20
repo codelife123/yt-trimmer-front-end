@@ -3,7 +3,7 @@ import './style.css';
 import { useForm } from 'react-hook-form';
 
 export default function App() {
-  const [isProcessing,setIsProcessing] = React.useState(false)
+  const [isProcessing, setIsProcessing] = React.useState(false);
   const startPattern =
     /^(?:(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d|\d+:[0-5]\d:[0-5]\d)$/;
   const urlPattern =
@@ -15,9 +15,7 @@ export default function App() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    setIsProcessing(true)
-    console.log('on sub callled');
-    console.log(data);
+    setIsProcessing(true);
     fetch(
       ' https://youtube-trimmer.onrender.com/trim?' + new URLSearchParams(data)
     )
@@ -30,7 +28,7 @@ export default function App() {
         a.download = 'trimmed.mp4';
         document.body.appendChild(a);
         a.click();
-        setIsProcessing(false)
+        setIsProcessing(false);
       });
   };
 
@@ -126,15 +124,15 @@ export default function App() {
           </div>
 
           <div class="flex justify-center">
-            {!isProcessing &&
+            {!isProcessing && (
               <button
-              class="bg-custom-primary-color hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="submit"
-            >
-              Trim
-            </button>
-            }
-            {isProcessing &&
+                class="bg-custom-primary-color hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit"
+              >
+                Trim
+              </button>
+            )}
+            {isProcessing && (
               <button
                 class="bg-purple-500 cursor-not-allowed opacity-50 text-white-700 font-bold py-2 px-4 rounded inline-flex items-center"
                 disabled
@@ -161,7 +159,7 @@ export default function App() {
                 </svg>
                 <span class="text-white-700">Processing</span>
               </button>
-            }
+            )}
           </div>
         </form>
 
